@@ -5,10 +5,11 @@ var receiveJSON = function(req, opts, cb) {
 
   payload(req, opts, function(raw) {
     try {
-      cb(null, JSON.parse(raw));
+      raw = JSON.parse(raw);
     } catch(err) {
-      cb(err);
+      return cb(err);
     }
+    cb(null, raw);
   });
 };
 
