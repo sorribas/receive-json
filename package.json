@@ -1,0 +1,32 @@
+{
+  "name": "receive-json",
+  "version": "1.0.0",
+  "description": "Receive JSON over an HTTP request.",
+  "main": "index.js",
+  "dependencies": {
+    "request-payload": "^0.2.0"
+  },
+  "devDependencies": {
+    "request": "^2.48.0",
+    "tape": "^3.0.3"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sorribas/receive-json"
+  },
+  "keywords": [
+    "json",
+    "http",
+    "request",
+    "api"
+  ],
+  "author": "Eduardo Sorribas <eduardo@sorribas.org> (http://sorribas.org/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sorribas/receive-json/issues"
+  },
+  "homepage": "https://github.com/sorribas/receive-json"
+}
