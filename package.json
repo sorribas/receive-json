@@ -1,6 +1,6 @@
 {
   "name": "receive-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Receive JSON over an HTTP request.",
   "main": "index.js",
   "dependencies": {
