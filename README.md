@@ -20,7 +20,7 @@ http.createServer(function(req, res) {
   onjson(req, function(err, body) {
     if (err) {
       res.statusCode = 400;
-      res.end('oh no!');
+      return res.end('oh no!');
     }
     res.end('awesome!');
   });
@@ -38,7 +38,7 @@ http.createServer(function(req, res) {
   onjson(req, {limit: 10000}, function(err, body) {
     if (err) {
       res.statusCode = 400;
-      res.end('oh no!');
+      return res.end('oh no!');
     }
     res.end('awesome!');
   });
