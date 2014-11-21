@@ -1,5 +1,8 @@
 receive-json
 ===============
+
+[![build status](https://secure.travis-ci.org/sorribas/receive-json.png)](http://travis-ci.org/sorribas/receive-json)
+
 Receive JSON over an HTTP request.
 
 ## Install
