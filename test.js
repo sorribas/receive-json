@@ -19,6 +19,14 @@ var runTests = function() {
     });
   });
 
+  test('.defaults', function(t) {
+    request.post('http://localhost:3400/defaults', {body: '{"hello": "world"}'}, function(err, res, body) {
+      t.ok(err);
+      t.equal(err.code, 'ECONNRESET');
+      t.end();
+    });
+  });
+
   test('end', function(t) {
     t.end();
     process.exit();
@@ -26,7 +34,12 @@ var runTests = function() {
 };
 
 var server = http.createServer(function(req, res) {
-  onjson(req, function(err, json) {
+  if (req.url === '/') return onjson(req, function(err, json) {
+    if (err) return res.end('ka-boom!');
+    res.end(JSON.stringify(json));
+  });
+
+  onjson.defaults({limit: 5})(req, function(err, json) {
     if (err) return res.end('ka-boom!');
     res.end(JSON.stringify(json));
   });
