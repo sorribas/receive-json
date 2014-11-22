@@ -1,4 +1,5 @@
 var payload = require('request-payload');
+var xtend = require('xtend');
 
 var receiveJSON = function(req, opts, cb) {
   if (typeof opts === 'function') return receiveJSON(req, {}, opts);
@@ -11,6 +12,16 @@ var receiveJSON = function(req, opts, cb) {
     }
     cb(null, raw);
   });
+};
+
+receiveJSON.defaults = function(defaultOpts) {
+  var fn = function(req, opts, cb) {
+    if (typeof opts === 'function') return fn(req, {}, opts);
+    opts = xtend(defaultOpts, opts); 
+    receiveJSON(req, opts, cb);
+  };
+
+  return fn;
 };
 
 module.exports = receiveJSON;

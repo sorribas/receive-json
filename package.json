@@ -4,7 +4,8 @@
   "description": "Receive JSON over an HTTP request.",
   "main": "index.js",
   "dependencies": {
-    "request-payload": "^0.2.0"
+    "request-payload": "^0.2.0",
+    "xtend": "^4.0.0"
   },
   "devDependencies": {
     "request": "^2.48.0",
