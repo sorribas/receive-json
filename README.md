@@ -47,3 +47,26 @@ http.createServer(function(req, res) {
   });
 }).listen(3000);
 ```
+
+## Defaults
+
+You can also call the `.defaults` function to have default settings applied to every call 
+of the function. Like this.
+
+```js
+var http = require('http');
+var onjson = require('receive-json');
+
+onjsonlimit = onjson.defaults({limit: 10000});
+
+http.createServer(function(req, res) {
+  onjsonlimit(req, function(err, body) { // this call has the limit applied to it.
+    if (err) {
+      res.statusCode = 400;
+      return res.end('oh no!');
+    }
+    res.end('awesome!');
+  });
+}).listen(3000);
+```
+
