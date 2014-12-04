@@ -8,6 +8,7 @@ var receiveJSON = function(req, opts, cb) {
     try {
       raw = JSON.parse(raw);
     } catch(err) {
+      err.status = 400
       return cb(err);
     }
     cb(null, raw);
